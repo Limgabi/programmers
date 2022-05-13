@@ -26,3 +26,34 @@ function solution(id_list, report, k) {
     }
     return answer;
 }
+
+// Dea
+function solution(id_list, report, k) {
+    const reportSet = new Set(report);
+    const reportedCount = {}; //{"id": Number(count)}
+    const reportedBy = {}; //{"id":[]}
+    const result = {}; //{"id":Number(count)}
+    
+    // 초기화
+    id_list.forEach((e) => {
+    reportedCount[e] = 0;
+    result[e] = 0;
+    reportedBy[e] = [];
+          });
+    reportSet.forEach((e) => {
+    const [id, reported] = e.split(" "); // 공백을 기준으로 각각에 넣음
+    reportedCount[reported] += 1; // 신고된 사람 신고된 횟수
+    reportedBy[reported].push(id); // 신고한 사람을 배열에 넣음
+
+  });
+    
+    for (const reportedId in reportedCount) {
+    if (reportedCount[reportedId] >= k) { // 신고 받은 횟수가 k 이상이면
+      reportedBy[reportedId].forEach((reporter) => {
+        result[reporter] += 1; // 신고한 사람이 받는 메일 수
+      });
+    }
+    
+  }
+    return id_list.map((id) => result[id]);
+}
