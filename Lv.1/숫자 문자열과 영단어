@@ -9,3 +9,20 @@ function solution(s) {
 
     return Number(answer);
 }
+
+// Limbi 
+function solution(s) {
+    let answer = s;
+    const numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const wordArr = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+    
+    for (let i=0; i<10; i++) {
+        if (s.includes(wordArr[i])) {
+            let word = wordArr[i];
+            let replaceAll = new RegExp(word, "g"); 
+            s = s.replace(replaceAll, numArr[i]);
+        }
+    }
+    answer = parseInt(s);
+    return answer;
+}
