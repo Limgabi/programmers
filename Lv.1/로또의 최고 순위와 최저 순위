@@ -1,0 +1,40 @@
+// Limbi
+function solution(lottos, win_nums) {
+    var answer = [];
+    var cnt = 0;
+    var unknown = 0;
+    
+    for (let i=0; i<6; i++) {
+        if (win_nums.includes(lottos[i])) {
+            cnt++;
+        }
+    }
+
+    unknown = lottos.filter(e => 0 === e).length;
+    answer.push(rank(cnt+unknown));
+    answer.push(rank(cnt));
+    
+    return answer;
+}
+
+function rank(cnt) {
+    switch(cnt) {
+        case 2:
+            return 5;
+            break;
+        case 3:
+            return 4;
+            break;
+        case 4:
+            return 3;
+            break;
+        case 5:
+            return 2;
+            break;
+        case 6:
+            return 1;
+            break;
+        default:
+            return 6;
+    }
+}
