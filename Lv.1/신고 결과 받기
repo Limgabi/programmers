@@ -1,0 +1,28 @@
+// Limbi
+function solution(id_list, report, k) {
+    var answer = [];
+    const report_obj = new Object();
+    
+    id_list.map((user, i)=>{
+        report_obj[user] = []
+        answer[i] = 0;
+    })
+    
+    report.map(function(i) {
+        var user = i.split(" ")[0];
+        var reported = i.split(" ")[1];
+        
+        if(!report_obj[reported].includes(user)){
+            report_obj[reported].push(user)
+        }    
+    })
+    
+    for(const key in report_obj){
+        if(report_obj[key].length >= k){
+            report_obj[key].map((user)=>{
+              answer[id_list.indexOf(user)] += 1
+            })
+        }
+    }
+    return answer;
+}
