@@ -21,3 +21,33 @@ function solution(board, moves) {
     }
     return answer;
 }
+
+// Limbi
+function solution(board, moves) {
+    const basket = [];
+    let answer = 0;
+    
+    moves.map(v => {
+        const doll = pickup(board, v);
+        if (doll) {
+            if (basket[basket.length-1] === doll) {
+                basket.pop();
+                answer += 2;
+            } else {
+                basket.push(doll);
+            }
+        }
+    })
+    return answer;
+}
+              
+function pickup(board, idx) {
+   const newBoard = board
+   for (let i=0; i<newBoard.length; i++) {
+        if (newBoard[i][idx-1] !== 0) {
+            const doll = newBoard[i][idx-1];
+            newBoard[i][idx-1] = 0;
+            return doll;
+        }
+   }
+}
