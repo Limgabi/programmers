@@ -1,3 +1,4 @@
+
 // Limbi
 function solution(participant, completion) {
     var answer = '';

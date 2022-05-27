@@ -55,7 +55,6 @@ function solution(n, lost, reserve) {
                     break;
                 }else if((reserve[i]-1) == lost[j] ||
                   (reserve[i]+1) == lost[j] ){
-                    
                     lost[j] = -1;
                     answer++;
                     break;
