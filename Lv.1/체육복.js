@@ -64,3 +64,36 @@ function solution(n, lost, reserve) {
         
     return answer;
 }
+
+
+//ivory
+function solution(n, lost, reserve) {
+    var answer = 0;
+    lost.sort(function(a,b){
+       return a-b; 
+    })
+    for(let i=0;i<lost.length;i++){
+        let index =reserve.indexOf(lost[i]);
+        if(index!==-1){
+            delete reserve[index];
+            delete lost[i];
+        }
+    }
+    for(let i=0;i<lost.length;i++){
+        if(lost[i]!==1&&reserve.indexOf(lost[i]-1)!==-1){ 
+            delete reserve[reserve.indexOf(lost[i]-1)];
+            delete lost[i];
+        }
+        else if(reserve.indexOf(lost[i]+1)!==-1){
+              delete reserve[reserve.indexOf(lost[i]+1)];
+              delete lost[i];
+        }
+        else{           
+        }
+    }
+    lost = lost.filter(function(element){
+        return lost!==false;
+    });
+    answer  = n-lost.length;
+    return answer;
+}
