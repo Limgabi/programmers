@@ -47,3 +47,28 @@ function solution(answers) {
     }
     return answer;
 }
+
+//ivory
+function solution(answers) {
+    var answer = [];
+
+    let way1 = [1,2,3,4,5];
+    let way2 = [2,1,2,3,2,4,2,5];
+    let way3 = [3,3,1,1,2,2,4,4,5,5];
+
+    let man1,man2,man3;
+
+    for(let i=0;i<answers.length;i++){
+        man1 = answers.filter((v,i)=>{return (v===way1[i%5])}).length;
+        man2 = answers.filter((v,i)=>{return (v===way2[i%8])}).length;
+        man3 = answers.filter((v,i)=>{return (v===way3[i%10])}).length;
+    }
+
+    let largest = Math.max(man1,man2,man3);
+
+    if(largest === man1) answer.push(1);
+    if(largest === man2) answer.push(2);
+    if(largest === man3) answer.push(3);
+
+    return answer;
+}
