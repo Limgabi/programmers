@@ -4,3 +4,10 @@ function solution(n) {
     answer = parseInt(n.toString(3).split('').reverse().join(''), 3);
     return answer;
 }
+
+
+// Dea
+function solution(n) {
+    let number = n.toString(3).split('').reverse().join('')
+    return parseInt(number, 3);
+}
