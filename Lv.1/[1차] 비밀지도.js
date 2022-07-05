@@ -1,1 +1,21 @@
-
+// Dea
+function solution(n, arr1, arr2) {
+    let answer =[];
+    let row = []; // 겹친 지도를 넣을 배열
+    
+    for(let i = 0; i < n; i++){
+        row.push(arr1[i] | arr2[i]); // 지도 겹치기
+    }
+  
+    let temp =[];
+    for(let i = 0; i < n; i++){
+        temp = row[i].toString(2).padStart(n, '0'); // 이진수로 전환
+        let temp2 = [...temp]; // 문자열을 배열로 저장
+        for(let j = 0; j < temp2.length; j++){
+            if(temp2[j] === '1') temp2[j] = '#'
+            else temp2[j] = ' ';
+        }
+        answer.push(temp2.join('')); // 배열을 다시 문자열로 합치기
+    }
+    return answer;
+}
