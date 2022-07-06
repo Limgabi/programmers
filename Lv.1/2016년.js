@@ -66,3 +66,12 @@ function solution(a, b) {
     }
     return answer;
 }
+
+
+//ivory
+function solution(a, b) {
+    const weekday=['SUN','MON','TUE','WED','THU','FRI','SAT']; //날짜 배열 선언
+    const dateStr="2016-"+a+"-"+b;  //날짜 형식 
+    let date=new Date(dateStr);     //date 객체 생성
+    return weekday[date.getDay()]; //date 객체의 getDay 메소드 통해 weekday 구하기 
+}
