@@ -35,3 +35,23 @@ function solution(n, arr1, arr2) {
     }
     return answer;
 }
+
+
+//ivory
+function solution(n, arr1, arr2) {
+    var answer = [];
+   
+    for(let i=0; i<n; i++){
+        const bin = (arr1[i] | arr2[i]).toString(2); //arr1, arr2 이진수로 반환
+        let line = [];
+        for(let j = bin.length-n; j<bin.length; j++) { // 자릿수 맞춰 줌 자릿수 11->00011
+            if(bin[j] === '1') { // 1이면 '#', 그 외 ' ' push
+                line.push('#');
+            } else {
+                line.push(' ');
+            }
+        }
+        answer.push(line.join('')); //''을 통해 각 line을 합친 후 answer에 넣음
+    }
+    return answer;
+}
