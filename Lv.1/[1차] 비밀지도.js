@@ -19,3 +19,19 @@ function solution(n, arr1, arr2) {
     }
     return answer;
 }
+
+// Limbi
+function solution(n, arr1, arr2) {
+    let answer = [];
+    let arr = [];
+   
+    for (let i=0; i<arr1.length; i++) {
+        arr.push((arr1[i]|arr2[i]).toString(2).padStart(n,'0'));
+    }
+    for (let e of arr) {
+        e = e.replace(/1/g, '#');
+        e = e.replace(/0/g, ' ');
+        answer.push(e);
+    }
+    return answer;
+}
