@@ -16,3 +16,15 @@ function solution(price, money, count) {
     money > answer ? answer = 0 : answer -= money;
     return answer;
 }
+
+function solution(price, money, count) {
+    let totalprice= 0;
+    let left=0;
+    
+    for(let i=1; i<=count; i++){
+        totalprice+=i*price;
+    }  
+    if(totalprice>money)  left=totalprice-money; 
+
+    return left;
+}
