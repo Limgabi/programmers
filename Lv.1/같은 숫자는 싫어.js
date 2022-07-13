@@ -15,3 +15,18 @@ function solution(arr)
     }
     return answer;
 }
+
+
+// Dea
+function solution(arr)
+{
+    let answer = [arr[0]]; // 중복을 뺀 값을 넣는 배열
+    
+    for(let i=1; i<arr.length; i++){
+        if(answer[answer.length-1] !== arr[i]){
+            answer.push(arr[i]);
+        }
+    }
+    
+    return answer;
+}
