@@ -70,3 +70,26 @@ function solution(dartResult) {
         
     return score;
 }
+
+
+// Dea
+function solution(dartResult) {
+    let score = 0;
+    let scoreArr = [];
+    
+    for(let i = 0; i < dartResult.length; i++){
+        // 숫자일 때
+        if(!isNaN(dartResult[i])){
+            score = Number(dartResult[i-1]) === 1 ? 10 : Number(dartResult[i]);
+        }else if(dartResult[i] === "S") scoreArr.push(score);
+        else if(dartResult[i] === "D")  scoreArr.push(Math.pow(score, 2));
+        else if(dartResult[i] === "T") scoreArr.push(Math.pow(score, 3));
+        else if(dartResult[i] === "*"){
+            scoreArr[scoreArr.length-2] = scoreArr[scoreArr.length-2] * 2;
+            scoreArr[scoreArr.length-1] = scoreArr[scoreArr.length-1] * 2; 
+        }else if(dartResult[i] === "#"){
+            scoreArr[scoreArr.length-1] = -scoreArr[scoreArr.length-1];
+        }
+    }
+    return scoreArr.reduce((acc, cur) => acc + cur, 0);
+}
