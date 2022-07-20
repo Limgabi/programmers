@@ -14,3 +14,18 @@ function solution(strings, n) {
     return a > b ? 1 : -1;
     });
 }
+
+//ivoryeee
+function solution(strings, n) {
+    let answer = strings.sort((a, b) => {
+       if(a[n] > b[n]) return 1; //정렬 순서 바뀜
+        if(a[n] < b[n]) return -1; //그대로 정렬 
+        if(a[n] === b[n]){
+            if(a>b) return 1; //정렬 순서 바뀜
+            if(a<b) return -1; //그대로 정렬 
+            return 0;
+        }  // 인덱스 n번째 글자가 같으면 사전순 정렬
+    });
+    
+    return answer;
+}
