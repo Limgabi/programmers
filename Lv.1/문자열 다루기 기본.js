@@ -12,3 +12,15 @@ function solution(s) {
     else return s.match(/[A-Z]/gi) === null ? true : false;
 
 }
+
+//ivoryeee
+function solution(s) {
+  let result = parseInt(s);
+
+  if ((s.length === 4 || s.length === 6) && s == result) {
+    result = true;
+  } else {
+    result = false;
+  }
+  return result;
+}
