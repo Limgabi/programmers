@@ -18,3 +18,9 @@ function solution(s) {
     
     return [...lower, ...upper].join('');
 }
+
+
+//ivoryeee
+function solution(s) {
+    return s.split('').sort().reverse().join('');
+}
