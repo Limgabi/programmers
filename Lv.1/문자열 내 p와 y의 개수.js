@@ -9,3 +9,12 @@ function solution(s){
     answer = pCnt === yCnt ? true : false;
     return answer;
 }
+
+
+// Dea
+function solution(s){
+    const p_count = s.toUpperCase().split("P").length;
+    const y_count = s.toUpperCase().split("Y").length;
+
+    return p_count === y_count;
+}
